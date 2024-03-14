@@ -43,7 +43,7 @@ fine_tune() {
 }
 
 # Variables for cleaner handling
-BASE_DIR="/mnt/data/reference-ray-domino-llama2" # your dataset path
+BASE_DIR="/mnt/data/${DOMINO_PROJECT_NAME}" # your dataset path
 DATA_DIR="./data" #"./data"
 TRAIN_PATH="${DATA_DIR}/train.jsonl"
 TEST_PATH="${DATA_DIR}/test.jsonl"
@@ -66,7 +66,7 @@ done
 case $SIZE in
 "7b")
     BS=16
-    ND=1 #16 #6 #16 node count 1 with gpu-training-a10 hwt was successful with 7b
+    ND=6 #16 #6 #16 node count 1 with gpu-training-a10 hwt was successful with 7b
     ;;
 "13b")
     BS=16
