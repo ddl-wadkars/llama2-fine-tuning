@@ -87,8 +87,8 @@ on the Pod Type
 
 | Type of Pod| HW Tier Instance Type | CPU | Memory | GPU | GPU Memory (Based on GPU Chosen)|
 |-------------|-----|---------------|--------------|------------|------------|
-| Workspace  |  m5.xlarge    | 4    | 15     | 0      | 0      |
-| Ray Head | m5.xlarge    | 4    | 15     | 0      | 0      |
+| Workspace  | g5.4xlarge     | 6    | 55     | 1 x A10G     | 24 GB      |
+| Ray Head | g5.4xlarge     | 6    | 55     | 1 x A10G     | 24 GB      |
 | Ray Worker | g5.4xlarge  | 6    | 55     | 1 x A10G     | 24 GB      |
 
 
@@ -115,7 +115,7 @@ For 7B, set up a cluster on AWS with the following settings:
 
 |            | num | instance type | GPU per node | GPU Memory | CPU Memory |
 |------------|-----|---------------|--------------|------------|------------|
-| Head node  | 1   | m5.xlarge   | -     | -     | -     |
+| Head node| 1  | g5.4xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
 | Worker node| 6  | g5.4xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
 
 And launch the following script:
@@ -130,8 +130,8 @@ Similarly for 13B you need a different compute config.
 
 |            | num | instance type | GPU per node | GPU Memory | CPU Memory |
 |------------|-----|---------------|--------------|------------|------------|
-| Head node  | 1   | m5.xlarge   | -     | -     | -     |
-| Worker node| 16  | g5.12xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
+| Head node| 1  | g5.4xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
+| Worker node| 16  | g5.4xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
 
 ```
 ./run_llama_ft.sh --size=13b [--as-test]
@@ -141,11 +141,11 @@ Similarly for 70B you need a different compute config.
 
 |            | num | instance type | GPU per node | GPU Memory | CPU Memory |
 |------------|-----|---------------|--------------|------------|------------|
-| Head node  | 1   | m5.xlarge   | -     | -     | -     |
-| Worker node| 32  | g5.12xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
+| Head node| 1  | g5.4xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
+| Worker node| 32  | g5.4xlarge    | 1 x A10G     | 24 GB      | 55 GB      |
 
 ```
-./run_llama_ft.sh --size=13b [--as-test]
+./run_llama_ft.sh --size=32b [--as-test]
 ```
 
 ## What is happening under the hood?
